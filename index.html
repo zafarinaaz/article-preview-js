@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      text-decoration: none;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: hsl(210, 46%, 95%);
+      border:2px solid pink;
+      
+    }
+    li{
+      list-style: none;
+    }
+    .container{
+      margin: auto;
+      height: auto;
+      width: 80%;
+      border-radius: 20px;
+      background-color: white;
+      overflow: hidden;
+      display: grid;
+      
+      grid-template-rows: 39% 1fr ;
+    }
+
+    .item img{
+      width: 100%;
+    }
+    .item.i1 img{
+      width: 100%;
+      height: 100%;
+      
+    }
+    .container .item.i2{
+      padding: 20px;
+      width: 100%;
+    }
+    h2{
+      padding-bottom: 15px;
+      font-size: 18px;
+    }
+    h6{
+      font-weight: lighter;
+      color: hsl(212, 23%, 69%);
+    }
+    .item.i3{
+      display: flex;
+      justify-content: space-evenly;
+      height:15vh;
+    }
+    
+    .items-wrap{
+      display: flex;
+      justify-content:space-around;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      margin: auto 20px;
+    }
+    .profile-wrap{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: start;
+      align-items: center;
+      margin: auto;
+      column-gap: 20px;
+      line-height: 20px;
+
+    }
+    .image-profile {
+      width:16%;
+    }
+    .image-profile img{
+      border-radius: 50%;
+    }
+    .share-wrap{
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      
+      column-gap: 20px;
+      height: 100%;
+      
+      z-index: 5;
+      
+    }
+    .share-wrap ul{
+      display: flex;
+      
+      width: 35%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .text-t{
+      height: 100%;
+     text-align: center;
+     display: flex;
+     align-items: center;
+    }
+    .text{
+      letter-spacing: 5px;
+      color: white;
+    }
+    .share-icon{
+      position: absolute;
+      width: 10%;
+      z-index: 15;
+      right: 5%;
+      
+      
+    }
+    .icon{
+      background-color:rgb(255, 252, 79);
+      border-radius: 50%;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .icon.show:hover{
+      background-color: rgb(245, 169, 150);
+      
+      
+    }
+    .icon img{
+      width:100%;
+      
+    }
+    .icon img.show{
+      color: white;
+     mix-blend-mode: exclusion;
+    }
+    .share-container{
+      
+      display: none;
+    }
+    .share-container.show{
+      display: block;
+      
+    }
+    .icon.show{
+      display: block;
+      background-color: hsl(0, 3%, 85%);
+    }
+
+    .i3.show{
+      
+      background-color: hsl(214, 17%, 51%);
+      
+    }
+    .profile-wrap.show{
+      display: none;
+    }
+
+  @media (min-width: 576px) {
+    .container{
+      width: 50%;
+      grid-template-columns:40% 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 'a b' 'a c';
+      overflow:inherit;
+    }
+    .item.i1{
+      grid-area: a;
+      overflow: hidden;
+    }
+    .item.i1 img{
+      border-radius: 20px ;
+      
+      width:122%;
+    }
+
+    .item.i2{
+      grid-area: b;
+    }
+    .item.i3{
+      grid-area: c;
+    }    
+
+    .share-icon{
+      width: 10%;
+
+    }
+    .share-wrap.show{
+      top: -150%;
+      left: 32%;
+      z-index: 20;
+      background-color: hsl(214, 17%, 51%);
+      border-radius: 20px;
+      height: 65px;
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .share-wrap::before {
+                content: "";
+                position: absolute;
+                top: 22px;
+                left: 52%;
+                transform: translate(10%, 100%);
+                z-index: 1;
+                border: 20px solid;
+                border-color:  hsl(214, 17%, 51%) transparent transparent  transparent ;
+      }
+      .i3.show{
+        background-color: white;
+        border-radius: 20px;
+        
+      }
+      .profile-wrap.show{
+      display:flex;
+    }
+
+  }
+  @media (max-width: 375px) {
+    .share-icon{
+      width: 12%;
+    }
+    .icon{
+      padding: 5px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item i1">
+      <img src="images/drawers.jpg" alt="">
+    </div>
+    <div class="item i2">
+      <h2> Shift the overall look and feel by adding these wonderful 
+        touches to furniture in your home</h2>
+        <p>Ever been in a room and felt like something was missing? Perhaps 
+          it felt slightly bare and uninviting. I’ve got some simple tips 
+          to help you make any room feel complete.</p>
+    </div>
+    <div class="item i3">
+      <div class="items-wrap">
+        <div class="wrap">
+          <div class="profile-wrap">
+            <div class="image-profile"><img src="images/avatar-michelle.jpg" alt=""></div>
+            <div class="profile">
+              <h4>Michelle Appleton</h4>
+              <h6>28 Jun 2020</h6>
+            </div>
+          </div>
+          <div class="share-container">
+            <div class="share-wrap">
+              <div class="text-t">
+                <div class="text">SHARE</div>
+              </div>
+              <ul class="share-media">
+                  <li><a href="#"><img src="images/icon-facebook.svg" alt=""></a></li>
+                  <li><a href="#"><img src="images/icon-twitter.svg" alt=""></a></li>
+                  <li><a href="#"><img src="images/icon-pinterest.svg" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="share-icon">
+          <div class="icon">
+            <img src="images/icon-share.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">sierra_za</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- Not everything that can be counted counts. Not everything that counts can be counted -->
